@@ -1,13 +1,20 @@
-require 'capistrano/ext/multistage'
+#require 'capistrano/ext/multistage'
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
 set :application, 'cap'
 set :scm, :git
-set :repo_url, 'git@github.com:PRABHALIKA/cap.git'
+set :repository, 'git@github.com:PRABHALIKA/cap.git'
+set :branch, "master"
 set :user, "cap_user"
-set :stages, ["staging", "production"]
+set :stages, ["staging","production"]
 set :default_stage, "staging"
+set :rbenv_ruby, '2.1.2'
+set :log_level, :debug
+set :deploy_via, :copy
+
+set :use_sudo, true
+set :ssh_options, { :forward_agent => true, keys: "~/home/knome/.ssh/id_rsa.pub" }
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 

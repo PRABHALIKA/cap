@@ -1,9 +1,16 @@
+#load 'deploy'
+#load 'config/deploy'
+
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 
 # Includes default deployment tasks
 require 'capistrano/deploy'
-
+require 'capistrano/rails'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
 # Includes tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
@@ -23,3 +30,4 @@ require 'capistrano/deploy'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+ 

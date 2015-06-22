@@ -1,20 +1,29 @@
 source 'https://rubygems.org'
 
 gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
 
-# rails specific capistrano funcitons
-gem 'capistrano-rails', '~> 1.1.0'
+# Add this if you're using rbenv
+gem 'capistrano-rbenv'
+
+# Add this if you're using rvm
+ gem 'capistrano-rvm'
 
 # integrate bundler with capistrano
-gem 'capistrano-bundler'
+#gem 'capistrano-bundler'
 
 # if you are using RBENV
-gem 'capistrano-rbenv', "~> 2.0" 
+#gem 'capistrano-rbenv' 
+#gem "capistrano-rvm"
+ gem 'sshkit'
+gem 'pg', '0.15.1'
+gem 'unicorn'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
